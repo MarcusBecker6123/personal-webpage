@@ -26,9 +26,8 @@ body {
 .flex-container-nav {
     display: flex;
     
-    justify-content: space-between;
+    justify-content: flex-start;
     align-items: center;
-    
     position: sticky;
     background: var(--light-blue);
     height: 50px;
@@ -46,13 +45,16 @@ body {
 
 
 #avatar {
+    display: inherit;
     width: 32px;
     height: 32px;
-    margin-left: 12px;
-    position:absolute;
-    left: 1rem;
-    top: 0.5rem;
+    
+    position: absolute;
+    /* left: 1rem; */
+    /* top: 0.5rem; */
 }
+
+
 
 nav a {
     display: inline-block;
@@ -67,12 +69,23 @@ nav a {
     /* margin: 0.5rem; */
 }
 
+nav a:first-child {
+    width: 32px;
+    
+    left: 3rem;
+    padding: 0;
+    height: 32px;
+    top: 0.5rem;
+    border-radius: 50%;
+    overflow: hidden;
+}
+
 nav a:last-child {
     margin-right: 0;
 }
 
 
-a:hover {
+a:hover:not(:first-child) {
     border-bottom: 5px solid transparent ;
     border-image: var(--gradient-90) 1;
     background: var(--blue);
