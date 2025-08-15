@@ -4,6 +4,12 @@
     --blue: #1e4dff;
     --light-blue: #1e4dffaa;
     --red: #9f141d;
+    --light-red: #9f141daa;
+    --white: #fff;
+    --gradient-90: linear-gradient(90deg , var(--light-blue), var(--blue), var(--white), var(--blue), var(--light-blue));
+    --gradient-295: linear-gradient(295deg , var(--light-blue), var(--blue), var(--light-red),  var(--red), var(--light-red), var(--blue), var(--light-blue));
+
+
     font-family: 'Beiruti', sans-serif;
 }
 
@@ -17,20 +23,26 @@ body {
 }
 
 
-.navbar {
+.flex-container-nav {
     display: flex;
     
-    justify-content: space-evenly;
+    justify-content: space-between;
     align-items: center;
     
     position: sticky;
     background: var(--light-blue);
-    height: 60px;
+    height: 50px;
     width: 100%;
     padding: 0;
     margin: 0;
 }
 
+.flex-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 50vh;
+}
 
 
 #avatar {
@@ -39,31 +51,70 @@ body {
     margin-left: 12px;
     position:absolute;
     left: 1rem;
-    top: 1rem;
+    top: 0.5rem;
 }
 
-a {
+nav a {
     display: inline-block;
-    position: relative;
-    width: 120px;
-    height: 40px;
+    position: sticky;
+    width: 140px;
+    height: 50px;
     text-align: center;
     text-decoration: none;
     color: #111;
-    font-size: 1.2rem;
-    padding: 0.5rem;
+    font-size: 1.3rem;
+    padding: 0.7rem;
     /* margin: 0.5rem; */
 }
 
+nav a:last-child {
+    margin-right: 0;
+}
+
+
 a:hover {
-    border-bottom: 2px solid #9f141d ;
+    border-bottom: 5px solid transparent ;
+    border-image: var(--gradient-90) 1;
     background: var(--blue);
-    transition: background 0.3s ease-in-out, border-bottom 0.3s ease-in;
+    transition: background 0.3s ease-in-out, border-bottom 0.1s ease-in, opacity 0.5s ease-in-out;
 }
 
 nav {
     display: flex;
+    justify-content: left;
+    align-items: flex-start;
+    /* gap: 1rem; */
+}
+
+div .home, div .about, div .contact {
+    display: flex;
+    flex-direction: row;
     justify-content: center;
     align-items: center;
-    /* gap: 1rem; */
+    width: 20rem;
+    height: 20vh;
+    background: var(--gradient-295);
+    background-size: 900% 150%;
+    margin: 0rem;
+    border-radius: 35px;
+    box-shadow: 3px 5px;
+    color: #fff;
+    animation: gradient 8s cubic-bezier(0.445, 0.5, 0.05, 0.05) infinite;
+    transform-origin: center;
+}
+
+@keyframes gradient {
+    0% {
+        background-position: 0% 50%;
+        transform: rotate 0deg;
+    }
+    50% {
+        background-position: 100% 50%;
+        transform:rotate 90deg;
+    }
+    100% {
+        background-position: 0% 50%;
+        transform: rotate 0deg;
+    }
+
 }
